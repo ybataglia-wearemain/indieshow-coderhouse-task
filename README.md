@@ -148,6 +148,52 @@ IndieShow/
 ├── render.yaml
 └── README.md
 ```
+## Evidencia visual
+
+A continuación se presentan capturas de las principales funcionalidades de IndieShow.
+
+### Página de inicio
+
+La página principal muestra la identidad del proyecto y permite acceder a la agenda de shows, iniciar sesión y navegar por las distintas secciones de la aplicación.
+
+![Página de inicio de IndieShow](docs/capturas/inicio.png)
+
+### Inicio de sesión de usuarios
+
+Los usuarios registrados pueden iniciar sesión para administrar el perfil de su banda y publicar sus próximos shows.
+
+![Inicio de sesión de usuarios](docs/capturas/login-usuario.png)
+
+### Panel de shows
+
+Desde este panel, cada usuario puede consultar los shows asociados a su banda y acceder a las opciones disponibles para administrar el contenido.
+
+![Panel de shows](docs/capturas/panel-shows.png)
+
+### Detalle de un show
+
+Cada publicación cuenta con una página de detalle donde se muestran los datos principales del evento, como la banda, fecha, horario, lugar, ciudad, género musical y descripción.
+
+![Detalle de un show](docs/capturas/shows-detalles.png)
+
+### Inicio de sesión del administrador
+
+Django proporciona un acceso independiente al panel administrativo para los usuarios autorizados.
+
+![Inicio de sesión del administrador](docs/capturas/login-admin.png)
+
+### Panel de administración
+
+Desde el panel de Django Admin es posible gestionar usuarios, bandas, géneros musicales y shows registrados en la aplicación.
+
+![Panel administrativo de Django](docs/capturas/admin-dashboard.png)
+
+### Modificación de contenido desde el administrador
+
+Los administradores pueden consultar y modificar la información almacenada en la aplicación mediante los formularios del panel administrativo.
+
+![Modificación desde Django Admin](docs/capturas/admin-modificacion.png)
+
 ## Autor
 
 Yair Eduardo Bataglia.

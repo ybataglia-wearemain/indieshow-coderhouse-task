@@ -170,6 +170,12 @@ Desde este panel, cada usuario puede consultar los shows asociados a su banda y 
 
 ![Panel de shows](docs/capturas/panel-shows.png)
 
+### Panel de perfil
+
+El panel del perfil, permite a cada usuario poder gestionar el mismo. 
+
+![Panel de shows](docs/capturas/panel-perfil.png)
+
 ### Detalle de un show
 
 Cada publicación cuenta con una página de detalle donde se muestran los datos principales del evento, como la banda, fecha, horario, lugar, ciudad, género musical y descripción.

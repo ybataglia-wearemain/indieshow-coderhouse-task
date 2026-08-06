@@ -200,6 +200,32 @@ Los administradores pueden consultar y modificar la información almacenada en l
 
 ![Modificación desde Django Admin](docs/capturas/admin-modificacion.png)
 
+## Despliegue de la aplicación
+
+### Estado del despliegue
+
+Actualmente, IndieShow no se encuentra publicado en un entorno de producción. Como parte de la preparación para la entrega, se realizó una simulación del proceso de despliegue utilizando **PythonAnywhere** como plataforma propuesta.
+
+PythonAnywhere permitiría alojar la aplicación Django, instalar sus dependencias, ejecutar las migraciones y exponer el proyecto mediante una URL pública.
+
+### Plataforma propuesta
+
+- Plataforma: PythonAnywhere
+- Framework: Django
+- Repositorio: GitHub
+- Servidor de aplicación: WSGI
+- Base de datos inicial: SQLite
+- Archivos estáticos: configuración mediante `STATIC_ROOT`
+- Archivos multimedia: configuración mediante `MEDIA_ROOT`
+
+### URL pública simulada
+
+La aplicación quedaría disponible en una dirección similar a:
+
+```text
+https://TU-USUARIO.pythonanywhere.com
+```
+
 ## Autor
 
 Yair Eduardo Bataglia.

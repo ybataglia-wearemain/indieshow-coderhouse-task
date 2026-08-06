@@ -31,7 +31,6 @@ Las fechas de bandas independientes suelen quedar dispersas entre redes sociales
 - SQLite.
 - HTML y CSS.
 - Pillow para imágenes.
-- WhiteNoise y Gunicorn para una preparación básica de despliegue.
 
 ## Instalación manual
 

@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}Ingresar | IndieShow{% endblock %}
+{% block content %}
+<section class="section"><div class="container narrow"><div class="auth-card"><p class="eyebrow">ACCESO</p><h1>Ingresar</h1><p>Accedé para administrar el perfil y los shows de tu banda.</p>{% if form.errors %}<div class="form-errors">Usuario o contraseña incorrectos.</div>{% endif %}<form method="post" class="card-form">{% csrf_token %}<div class="field"><label for="id_username">Usuario</label>{{ form.username }}</div><div class="field"><label for="id_password">Contraseña</label>{{ form.password }}</div>{% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}<button class="button full" type="submit">Ingresar</button></form><p class="auth-foot">¿No tenés cuenta? <a href="{% url 'registro' %}">Registrar banda</a></p></div></div></section>
+{% endblock %}

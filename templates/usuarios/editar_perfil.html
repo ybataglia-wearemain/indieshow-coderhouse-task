@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Editar perfil | IndieShow{% endblock %}
+{% block content %}
+<section class="page-header"><div class="container"><p class="eyebrow">MI CUENTA</p><h1>Editar perfil</h1><p>Actualizá los datos públicos de tu banda y tu información de usuario.</p></div></section>
+<section class="section compact-top"><div class="container narrow"><form method="post" enctype="multipart/form-data" class="card-form">{% csrf_token %}<h2>Datos de acceso</h2>{% for field in formulario_usuario %}<div class="field">{{ field.label_tag }}{{ field }}{% for error in field.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</div>{% endfor %}<h2>Perfil de banda</h2>{% for field in formulario_perfil %}<div class="field">{{ field.label_tag }}{{ field }}{% for error in field.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</div>{% endfor %}<div class="form-actions"><button class="button" type="submit">Guardar cambios</button><a href="{% url 'perfil' %}">Cancelar</a></div></form></div></section>
+{% endblock %}

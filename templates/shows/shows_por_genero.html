@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}{{ genero.nombre }} | IndieShow{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <p class="eyebrow">GÉNERO MUSICAL</p>
+        <h1>{{ genero.nombre }}</h1>
+        <p>Próximos shows publicados dentro de esta categoría.</p>
+    </div>
+</section>
+<section class="section compact-top">
+    <div class="container show-grid">
+        {% for show in shows %}
+            {% include 'shows/_show_card.html' %}
+        {% empty %}
+            <div class="empty-state"><h3>No hay fechas próximas</h3><p>Este género todavía no tiene shows publicados.</p></div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

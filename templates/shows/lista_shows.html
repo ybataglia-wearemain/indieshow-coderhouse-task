@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Agenda de shows | IndieShow{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <p class="eyebrow">AGENDA</p>
+        <h1>Próximos shows</h1>
+        <p>Buscá por banda, nombre del show, ciudad o lugar.</p>
+    </div>
+</section>
+<section class="section compact-top">
+    <div class="container">
+        <form method="get" class="search-form">
+            {{ formulario.q }}
+            <button class="button" type="submit">Buscar</button>
+            {% if query %}<a href="{% url 'lista_shows' %}">Limpiar</a>{% endif %}
+        </form>
+        {% if query %}<p class="results-info">Resultados para “{{ query }}”</p>{% endif %}
+        <div class="show-grid">
+            {% for show in shows %}
+                {% include 'shows/_show_card.html' %}
+            {% empty %}
+                <div class="empty-state"><h3>No encontramos shows</h3><p>Probá con otra búsqueda.</p></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

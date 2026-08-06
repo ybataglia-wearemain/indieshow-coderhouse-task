@@ -1,0 +1,20 @@
+{% load show_tags %}
+<article class="show-card">
+    <a href="{% url 'detalle_show' show.pk %}" class="show-image">
+        {% if show.flyer %}
+            <img src="{{ show.flyer.url }}" alt="Flyer de {{ show.titulo }}">
+        {% else %}
+            <div class="show-placeholder">{{ show.fecha|date:"d" }}<small>{{ show.fecha|date:"M" }}</small></div>
+        {% endif %}
+    </a>
+    <div class="show-body">
+        <a class="genre-chip" href="{% url 'shows_por_genero' show.genero.slug %}">{{ show.genero.nombre }}</a>
+        <h3><a href="{% url 'detalle_show' show.pk %}">{{ show.titulo }}</a></h3>
+        <p class="band-name">{{ show.nombre_banda }}</p>
+        <dl class="show-meta">
+            <div><dt>Fecha</dt><dd>{{ show.fecha|date:"d/m/Y" }} · {{ show.hora|time:"H:i" }}</dd></div>
+            <div><dt>Lugar</dt><dd>{{ show.lugar }}, {{ show.ciudad }}</dd></div>
+            <div><dt>Entrada</dt><dd>{{ show.precio|precio_show }}</dd></div>
+        </dl>
+    </div>
+</article>

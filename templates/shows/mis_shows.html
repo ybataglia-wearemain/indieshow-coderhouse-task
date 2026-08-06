@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Mis shows | IndieShow{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div class="container section-heading">
+        <div><p class="eyebrow">GESTIÓN</p><h1>Mis shows</h1><p>Editá, publicá o eliminá las fechas de tu banda.</p></div>
+        <a class="button" href="{% url 'crear_show' %}">Nuevo show</a>
+    </div>
+</section>
+<section class="section compact-top">
+    <div class="container table-wrap">
+        <table class="data-table">
+            <thead><tr><th>Show</th><th>Fecha</th><th>Género</th><th>Estado</th><th>Acciones</th></tr></thead>
+            <tbody>
+            {% for show in shows %}
+                <tr>
+                    <td><a href="{% url 'detalle_show' show.pk %}"><strong>{{ show.titulo }}</strong></a><small>{{ show.lugar }}, {{ show.ciudad }}</small></td>
+                    <td>{{ show.fecha|date:"d/m/Y" }}<small>{{ show.hora|time:"H:i" }}</small></td>
+                    <td>{{ show.genero.nombre }}</td>
+                    <td>{% if show.publicado %}<span class="status published">Publicado</span>{% else %}<span class="status draft">Borrador</span>{% endif %}</td>
+                    <td><a href="{% url 'editar_show' show.pk %}">Editar</a> · <a class="text-danger" href="{% url 'eliminar_show' show.pk %}">Eliminar</a></td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="5">Todavía no publicaste ningún show.</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

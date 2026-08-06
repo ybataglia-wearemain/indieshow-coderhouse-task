@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}IndieShow | Próximos shows{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="container hero-grid">
+        <div>
+            <p class="eyebrow">AGENDA DE MÚSICA INDEPENDIENTE</p>
+            <h1>Encontrá tu próximo show.</h1>
+            <p class="hero-copy">Bandas independientes publican sus fechas. El público descubre shows por género, ciudad y lugar.</p>
+            <div class="hero-actions">
+                <a class="button" href="{% url 'lista_shows' %}">Ver próximos shows</a>
+                {% if user.is_authenticated %}
+                    <a class="button secondary" href="{% url 'crear_show' %}">Publicar una fecha</a>
+                {% else %}
+                    <a class="button secondary" href="{% url 'registro' %}">Registrar mi banda</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="hero-panel">
+            <span>INDIE</span>
+            <strong>SHOW</strong>
+            <p>Fechas · Bandas · Géneros</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">CARTELERA</p>
+                <h2>Próximas fechas</h2>
+            </div>
+            <a href="{% url 'lista_shows' %}">Ver agenda completa →</a>
+        </div>
+        <div class="show-grid">
+            {% for show in shows %}
+                {% include 'shows/_show_card.html' %}
+            {% empty %}
+                <div class="empty-state">
+                    <h3>Todavía no hay shows publicados</h3>
+                    <p>Registrá tu banda y publicá la primera fecha de IndieShow.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}Registrar banda | IndieShow{% endblock %}
+{% block content %}
+<section class="section"><div class="container narrow"><div class="auth-card"><p class="eyebrow">NUEVA CUENTA</p><h1>Registrar banda</h1><p>Creá una cuenta para publicar y administrar tus shows.</p><form method="post" class="card-form">{% csrf_token %}{% for field in formulario %}<div class="field">{{ field.label_tag }}{{ field }}{% if field.help_text %}<small>{{ field.help_text|safe }}</small>{% endif %}{% for error in field.errors %}<span class="field-error">{{ error }}</span>{% endfor %}</div>{% endfor %}<button class="button full" type="submit">Crear cuenta</button></form><p class="auth-foot">¿Ya tenés cuenta? <a href="{% url 'login' %}">Ingresar</a></p></div></div></section>
+{% endblock %}

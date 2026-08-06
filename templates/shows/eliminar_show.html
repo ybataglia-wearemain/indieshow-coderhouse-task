@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar show | IndieShow{% endblock %}
+{% block content %}
+<section class="section"><div class="container narrow"><div class="confirm-card"><p class="eyebrow">CONFIRMACIÓN</p><h1>Eliminar show</h1><p>¿Seguro que querés eliminar <strong>{{ show.titulo }}</strong>? Esta acción no se puede deshacer.</p><form method="post">{% csrf_token %}<button class="button danger" type="submit">Sí, eliminar</button> <a href="{% url 'detalle_show' show.pk %}">Cancelar</a></form></div></div></section>
+{% endblock %}

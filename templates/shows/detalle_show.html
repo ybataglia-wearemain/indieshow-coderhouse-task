@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load show_tags %}
+{% block title %}{{ show.titulo }} | IndieShow{% endblock %}
+{% block content %}
+<section class="section">
+    <div class="container detail-grid">
+        <div class="detail-image">
+            {% if show.flyer %}
+                <img src="{{ show.flyer.url }}" alt="Flyer de {{ show.titulo }}">
+            {% else %}
+                <div class="detail-placeholder"><span>{{ show.fecha|date:"d" }}</span><small>{{ show.fecha|date:"F Y" }}</small></div>
+            {% endif %}
+        </div>
+        <div class="detail-content">
+            <a class="genre-chip" href="{% url 'shows_por_genero' show.genero.slug %}">{{ show.genero.nombre }}</a>
+            {% if not show.publicado %}<span class="status draft">Borrador</span>{% endif %}
+            <h1>{{ show.titulo }}</h1>
+            <p class="detail-band">{{ show.nombre_banda }}</p>
+            <div class="detail-data">
+                <div><span>Fecha y hora</span><strong>{{ show.fecha|date:"l d \d\e F \d\e Y" }} · {{ show.hora|time:"H:i" }}</strong></div>
+                <div><span>Lugar</span><strong>{{ show.lugar }}</strong><small>{{ show.direccion }}, {{ show.ciudad }}</small></div>
+                <div><span>Entrada</span><strong>{{ show.precio|precio_show }}</strong></div>
+            </div>
+            <div class="prose">{{ show.descripcion|linebreaks }}</div>
+            <div class="detail-actions">
+                {% if show.enlace_entradas %}<a class="button" href="{{ show.enlace_entradas }}" target="_blank" rel="noopener">Comprar entradas</a>{% endif %}
+                {% if user == show.autor %}
+                    <a class="button secondary" href="{% url 'editar_show' show.pk %}">Editar</a>
+                    <a class="text-danger" href="{% url 'eliminar_show' show.pk %}">Eliminar</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
